@@ -1,3 +1,6 @@
+<?php
+    include "connection.php";
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -66,12 +69,23 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                </tr>
+                <?php
+                    $sql = "SELECT * FROM `crud`";
+                    $sql_query= mysqli_query($con, $sql);
+                    if($sql_query){
+                        while($row = mysqli_fetch_assoc($sql_query)){
+                            echo '
+                                <tr>
+                                    <td>'.$row['name'].'</td>
+                                    <td>'.$row['email'].'</td>
+                                    <td>'.$row['password'].'</td>
+                                    <td>Action</td>
+                                </tr>
+                            ';
+                        }
+                    }
+                ?>
+
             </tbody>
         </table>
     </div>
