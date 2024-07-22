@@ -1,3 +1,22 @@
+<?php
+    include "connection.php";
+
+    if(isset($_POST['submit'])){
+        $name= $_POST['name'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+
+        $sql = "INSERT INTO `crud` (name,email,password) VALUES ('$name','$email','$password')";
+        $sql_query = mysqli_query($con, $sql);
+        if($sql_query){
+            header("location: index.php");
+        }else {
+            die(mysqli_error($con));
+        }
+    }
+?>
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -26,7 +45,7 @@
                         <h5 class="modal-title" id="staticBackdropLabel">Add New User</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-                    <form>
+                    <form method="POST">
                         <div class="modal-body">
                             <div class="mb-3">
                                 <label for="exampleInputEmail1" class="form-label">Full Name</label>
