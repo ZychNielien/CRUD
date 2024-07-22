@@ -67,7 +67,9 @@ if(isset($_POST['update'])){
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary"  data-bs-dismiss="modal">Close</button>
+                    <button class="btn-danger">
+                                            <a href="index.php" style="color: white; text-decoration: none;">Back</a>
+                                        </button>
                         <button type="submit" class="btn btn-primary" name="update">Update</button>
                     </div>
                 </form>
@@ -77,5 +79,18 @@ if(isset($_POST['update'])){
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-  </body>
+  
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <script>
+
+        $(document).ready(function () {
+
+            $("#exampleCheck1").on('click', function () {
+                let showpass = $("#exampleInputPassword1");
+                showpass.attr('type', showpass.attr('type') === 'password' ? 'text' : 'password');
+            });
+        });
+    </script>
+</body>
 </html>
