@@ -14,6 +14,17 @@
             die(mysqli_error($con));
         }
     }
+
+    if(isset($_GET['deleteid'])) {
+        $id = $_GET['deleteid'];
+
+        $sql = "DELETE FROM `crud` WHERE id = '$id'";
+        $sql_query = mysqli_query($con, $sql);
+
+        if($sql_query){
+            header("location: index.php");
+        }
+    }
 ?>
 
 <!doctype html>
@@ -94,7 +105,11 @@
                                     <td>'.$row['name'].'</td>
                                     <td>'.$row['email'].'</td>
                                     <td>'.$row['password'].'</td>
-                                    <td>Action</td>
+                                    <td>
+                                        <button class="btn-danger">
+                                            <a href="index.php? deleteid='.$row['id'].'" style="color: white; text-decoration: none;">Delete</a>
+                                        </button>
+                                    </td>
                                 </tr>
                             ';
                         }
