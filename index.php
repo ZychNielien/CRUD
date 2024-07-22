@@ -109,6 +109,9 @@
                                         <button class="btn-danger">
                                             <a href="index.php? deleteid='.$row['id'].'" style="color: white; text-decoration: none;">Delete</a>
                                         </button>
+                                        <button class="btn-primary">
+                                            <a href="update.php? updateid='.$row['id'].'" style="color: white; text-decoration: none;">Update</a>
+                                        </button>
                                     </td>
                                 </tr>
                             ';
